@@ -7,18 +7,19 @@ public class Buzon {
 
     public static void main(String[] args) {
 
+        Usuario aux=new Usuario();
         int contador = 0, valido;
 
         do { // Comprobamos que el usuario existe
 
-            valido = Control.comprobar_usuario();
+            valido = Control.comprobar_usuario(aux);
             if (valido == 0) {
                 System.out.println("Usuario o contraseña incorrectos, vuelva a introducirlos");
                 System.out.println("");
                 contador++;
             }
 
-        } while (valido == 0 || contador <= 2);
+        } while (valido == 0 && contador <= 2);
 
         if (valido == 0) { // Usuario no existe
 
@@ -35,10 +36,7 @@ public class Buzon {
         }
 
     }
-    
-    
-    
-    
+
     public static void menu_superusuario() {
 
         Scanner tec = new Scanner(System.in);
@@ -67,16 +65,16 @@ public class Buzon {
                 case 0:
                     break;
                 case 1:
-
+                    Control.cambiarContrasenya();
                     break;
                 case 2:
-
+                    Control.altaUsuario();
                     break;
                 case 3:
-
+                    Control.bajaUsuario();
                     break;
                 case 4:
-
+                    Control.listaUsuario();
                     break;
                 case 5:
 
@@ -89,13 +87,9 @@ public class Buzon {
         } while (opcion != 0);
 
     }
-    
-    
-    public static void menu_usuarionormal(){
-        
+
+    public static void menu_usuarionormal() {
+
     }
-    
-    
-    
 
 }
