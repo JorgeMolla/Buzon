@@ -1,8 +1,7 @@
 package buzon;
 
-import java.io.FileReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,7 +14,7 @@ public class Control {
 
         Scanner teclado = new Scanner(System.in);
         int valido = 0;
-        FileReader lectura;
+        FileOutputStream lectura;
         ObjectOutputStream lectura_objeto;
         Usuario aux = new Usuario();
         String usu, cont;
@@ -24,14 +23,13 @@ public class Control {
         usu = teclado.nextLine();
         System.out.println("Contraseña: ");
         cont = teclado.nextLine();
-        
-        try{
-            
-            lectura=new FileReader("usuarios.txt");
-            lectura_objeto=new ObjectOutputStream(lectura);
-            
-            
-        }catch(IOException e){
+
+        try {
+
+            lectura = new FileOutputStream("usuarios.txt");
+            lectura_objeto = new ObjectOutputStream(lectura);
+
+        } catch (IOException e) {
             System.out.println("Fallo con fichero");
         }
 
