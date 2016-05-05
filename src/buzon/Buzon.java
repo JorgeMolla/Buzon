@@ -43,6 +43,8 @@ public class Buzon {
         Scanner tec = new Scanner(System.in);
         int opcion = 0;
 
+        Mensajes m = new Mensajes();
+        m.Mostrar_Mensaje(aux);
         do {
             do {
 
@@ -78,7 +80,7 @@ public class Buzon {
                     Control.listaUsuario();
                     break;
                 case 5:
-
+                    m.Escribir_Mensaje();
                     break;
 
                 default:
@@ -94,6 +96,8 @@ public class Buzon {
         Scanner tec = new Scanner(System.in);
         int opcion = 0;
 
+        Mensajes m = new Mensajes();
+        m.Mostrar_Mensaje(aux);
         do {
             do {
                 System.out.println("0. Salir\n1. Cambiar contraseña\n2. Enviar mensaje");
@@ -120,6 +124,7 @@ public class Buzon {
                     break;
                 case 2:
 
+                    m.Escribir_Mensaje();
                     break;
                 default:
                     throw new AssertionError();

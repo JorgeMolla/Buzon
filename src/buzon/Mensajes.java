@@ -77,7 +77,7 @@ public class Mensajes implements Serializable {
 
     }//Fin "ESCRIBIR MENSAJE".
 
-    public void Mostrar_Mensaje(Mensajes pers) {
+    public void Mostrar_Mensaje(Usuario pers) {
         FileInputStream Leer;
         ObjectInputStream Leer_Mensaje;
         Object aux2;
@@ -95,8 +95,9 @@ public class Mensajes implements Serializable {
             while (aux2 != null) {
                 if (aux2 instanceof Mensajes) {
                     auxiliar = (Mensajes) aux2;
-                    if (auxiliar.remitente.compareTo(pers.remitente) == 0) {
+                    if (auxiliar.destinatario.compareTo(pers.getNombre()) == 0) {
                         System.out.println("Remitente: " + auxiliar.remitente + "\n+" + "Mensaje: \n" + auxiliar.cuerpo);
+                        System.out.println("");
                     } else {
                         lista.add(auxiliar);
                     }
