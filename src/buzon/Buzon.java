@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class Buzon {
 
+    static Usuario aux = new Usuario();
+
     public static void main(String[] args) {
 
-        Usuario aux=new Usuario();
         int contador = 0, valido;
 
         do { // Comprobamos que el usuario existe
@@ -65,7 +66,7 @@ public class Buzon {
                 case 0:
                     break;
                 case 1:
-                    Control.cambiarContrasenya();
+                    Control.cambiarContrasenya(aux);
                     break;
                 case 2:
                     Control.altaUsuario();
@@ -89,6 +90,42 @@ public class Buzon {
     }
 
     public static void menu_usuarionormal() {
+
+        Scanner tec = new Scanner(System.in);
+        int opcion = 0;
+
+        do {
+            do {
+                System.out.println("0. Salir\n1. Cambiar contraseña\n2. Enviar mensaje");
+                try {
+                    opcion = tec.nextInt();
+                    System.out.println("");
+                } catch (InputMismatchException e) {
+                    System.out.println("Error de datos");
+                    System.out.println("");
+                }
+
+                if (opcion < 0 || opcion > 2) {
+                    System.out.println("Error de datos");
+                    System.out.println("");
+                }
+
+            } while (opcion < 0 || opcion > 2);
+
+            switch (opcion) {
+                case 0:
+                    break;
+                case 1:
+                    Control.cambiarContrasenya(aux);
+                    break;
+                case 2:
+
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+        } while (opcion != 0);
 
     }
 
